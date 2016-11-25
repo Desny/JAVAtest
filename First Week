@@ -1,0 +1,85 @@
+package first_week;
+
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		Scanner in = new Scanner(System.in);
+		Fraction a = new Fraction(in.nextInt(), in.nextInt());
+		Fraction b = new Fraction(in.nextInt(),in.nextInt());
+		a.print();
+		b.print();
+		a.plus(b).print();
+		a.multiply(b).plus(new Fraction(5,6)).print();
+		a.print();
+		b.print();
+		in.close();
+	}
+
+}
+
+class Fraction{
+	int fz;
+	int fm;
+	Fraction(int a,int b)
+	{
+		fz = a;
+		fm = b;
+	}
+	double toDouble()
+	{
+		return (double)(fz/fm);
+	}
+	Fraction plus(Fraction r)
+	{
+		int fmm;
+		int fzz;
+		fmm = this.fm * r.fm;
+		fzz = this.fz * r.fm + r.fz * this.fm;
+		return new Fraction(fzz,fmm);
+	}
+	Fraction multiply(Fraction r)
+	{
+		int fzz;
+		int fmm;
+		fmm = this.fm * r.fm;
+		fzz = this.fz * r.fz;
+		return new Fraction(fzz,fmm);
+	}
+	
+	void print()
+	{
+		int gy = gongy(this.fz,this.fm);
+		fz = fz/gy;
+		fm = fm/gy;
+		if( fz%fm==0 )
+		{
+			System.out.println(fz/fm);
+		}else
+		{
+		System.out.println(fz+"/"+fm);
+		}
+	}
+	
+	int gongy( int m,int n)
+	{
+		int a;
+		do
+		{
+			a=m%n;
+			if(a!=0)
+			{
+				m=n;
+				n=a;
+			}
+			else
+			{
+				a=n;break;
+			}
+			
+		}
+		while(a!=0);
+		return a;
+	} 
+}
