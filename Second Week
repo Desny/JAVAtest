@@ -1,0 +1,81 @@
+have two class together; this modifies how the clock works
+
+package second_week;    //Main Class, to run the clock
+
+public class Clock {
+	private Display hour = new Display(24);
+	private Display minute = new Display(60);
+	private Display second = new Display(60);
+	
+	public Clock( int hour,int minute,int second ){
+		this.hour.value = hour;
+		this.minute.value = minute;
+		this.second.value = second;
+	}
+	
+	public void tick(){
+		second.increase();
+		if( second.value==0 )
+		{
+			minute.increase();
+			if( minute.value==0 )
+			{
+				hour.increase();
+			}
+		}
+		
+	}
+	
+	public String toString(){
+		String s = ""+hour.value + ":" + minute.value + ":" + second.value;
+		return s;
+	}
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Clock clock = new Clock(12,20,20);
+		while( true )
+		{
+			clock.tick();
+			System.out.println(clock.toString());
+		}
+		
+	}
+
+}
+
+
+package second_week;
+
+public class Display {    //to define hour,minute and second
+	int value = 0;
+	int limit = 0;
+	
+	Display( int limit ){
+		this.limit = limit;
+	}
+	
+	void increase(){
+		value ++;
+		if( value==limit )
+		{
+			value = 0;
+		}
+	}
+	
+	int getValue(){ 
+		return value;
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Display d = new Display(24);
+		while( true )
+		{
+			d.increase();
+			System.out.println(d.getValue());
+		}
+	}
+
+}
+
