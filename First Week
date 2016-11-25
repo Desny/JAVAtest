@@ -1,4 +1,4 @@
-package first_week;
+package first_week;		//This is for plusing two fractions.
 
 import java.util.Scanner;
 
