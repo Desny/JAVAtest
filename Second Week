@@ -1,4 +1,4 @@
-###have two class together; this modifies how the clock works
+have two class together; this modifies how the clock works
 
 package second_week;    //Main Class, to run the clock
 
