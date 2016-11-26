@@ -1,4 +1,4 @@
-have two class together; this modifies how the clock works
+###have two class together; this modifies how the clock works
 
 package second_week;    //Main Class, to run the clock
 
@@ -27,7 +27,7 @@ public class Clock {
 	}
 	
 	public String toString(){
-		String s = ""+hour.value + ":" + minute.value + ":" + second.value;
+		String s = String.format( "%02d:%02d:%02d",hour.value,minute.value,second.value );
 		return s;
 	}
 	
